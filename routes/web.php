@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodolistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home',[TodolistController::class,'index'])->name('index');
+Route::post('/store',[TodolistController::class,'store'])->name('store');
+Route::delete('/destroy',[TodolistController::class,'destroy'])->name('destroy');
